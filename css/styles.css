@@ -1,0 +1,213 @@
+:root {
+    --br: 24px;
+    --buy-minh: 55vh;
+    --buy-pil: 1.2rem;
+    --buy-pspacing: .5rem auto 2rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    /* Soft background gradient matching the screenshot */
+    background: linear-gradient(135deg, #e06038, #8853a8, #4267b2);
+    min-height: 60vh;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+}
+
+/* Base Grid Setup */
+.grid-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* Desktop Layout using Named Grid Areas */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "nav    nav    nav"
+        "title  title  title"
+        "img    img    img"
+        "card1  card2  card3"
+        "footer footer footer";
+}
+
+/* Map elements to grid areas */
+.nav-bar  { grid-area: nav; }
+.banner   { grid-area: title; }
+.top-img  { grid-area: img; }
+.card-1   { grid-area: card1; }
+.card-2   { grid-area: card2; }
+.card-3   { grid-area: card3; }
+.footer   { grid-area: footer; }
+
+/* Navigation Styling */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.nav-bar a {
+    color: #ffffff;
+    text-decoration: underline #ffffff;
+    font-weight: 600;
+
+}
+
+/* Title Container Styling */
+.banner {
+    background-color: rgba(230, 235, 240, 0.85);
+    padding: 1.25rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.banner .title {
+    color: #1e3d3e;
+    font-size: 2.4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Image Styling */
+.top-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styling */
+.card {
+    background-color: rgba(230, 235, 240, 0.85);
+    padding: 1.75rem;
+    border-radius: var(--br);
+    color: #333;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin-bottom: 0.75rem;
+    color: #1e3d3e;
+    text-align: center;
+
+}
+table {
+    margin: 0 auto;
+    border: #1e3d3e 2px solid;
+    padding-inline: 2rem;
+}
+
+ ul li {
+list-style: none;
+text-align: right;
+}
+
+footer {
+    grid-area: 'footer';
+    background-color: palegreen;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    border-radius: var(--br);
+}
+
+
+/* purchase page setup */
+.grid-container-buy-page {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* background-color: #e06038; */
+    
+
+    /* Desktop Layout using Named Grid Areas */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "nav    nav    nav"
+        "title  title  title"
+        "sidebar   main    main"
+        "footer footer footer";
+}
+
+/* Map elements to grid areas */
+.nav-bar  { grid-area: nav; }
+.banner   { grid-area: title; }
+.main  { grid-area: main; }
+.sidebar   { grid-area: sidebar; }
+.footer   { grid-area: footer; }
+
+.main {
+    background-color: #85e5fd;
+    min-height: var(--buy-minh);
+    padding-inline: var(--buy-pil);
+    border-radius: var(--br);
+    padding-top: 1rem;
+
+
+        .payment-links{
+    margin-top: 2rem;
+    }
+    .payment-link {
+        display: flex;
+        flex-direction: column;
+    }
+    a {
+
+        font-size: 1.5rem;
+        color: #1e3d3e;
+        font-weight: 800;
+    }
+}
+.sidebar {
+    background-color: #FFCC33;
+    min-height: var(--buy-minh);
+    padding-inline: var(--buy-pil);
+    border-radius: var(--br);
+    padding-top: 1rem;
+    font-size: 1.25;
+
+    a {
+        font-weight: 700;
+        color: darkmagenta;
+
+        padding: 4px 2px;
+        
+    }
+    
+    p {
+        margin: var(--buy-pspacing);
+    }
+
+
+
+}
+
+
+
+/* Responsive breakpoint for Mobile/Tablet */
+@media (max-width: 768px) {
+    .grid-container-buy-page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "nav"
+            "title"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
